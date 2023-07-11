@@ -7,6 +7,9 @@ rm(list = ls())
 library(KoboconnectR)
 library(git2r)
 
+# Run in R-Studio Terminal
+# git config --global http.followRedirects true
+
 # Delete previous files 
 if (file.exists("estacionesDB.csv")) {file.remove("estacionesDB.csv")}
 if (file.exists("medicionesDB.csv")) {file.remove("medicionesDB.csv")}
@@ -21,8 +24,8 @@ medicionesDB <- kobo_df_download(
   assetid = "aRjyGaDFmeXMG3akSBvYzh")
 
 # Save files
-write.csv(estacionesDB, file = "estacionesDB.csv")
-write.csv(medicionesDB, file = "medicionesDB.csv")
+write.csv(estacionesDB[-1], file = "estacionesDB.csv")
+write.csv(medicionesDB[-1], file = "medicionesDB.csv")
 
 # Open local repository
 repo <- repository(".")
