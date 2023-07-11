@@ -27,22 +27,6 @@ medicionesDB <- kobo_df_download(
 write.csv(estacionesDB, file = "estacionesDB.csv")
 write.csv(medicionesDB, file = "medicionesDB.csv")
 
-# Open local repository
-repo <- repository(".")
-
-# Stage changes
-add(repo, "*")
-
-# Commit changes
-commit(repo, "Update CSV files")
-
-# Push changes to online repository
-push(repo, "origin", "main")
-
-
-
-
-
 # Stage changes
 system("git add *")
 
