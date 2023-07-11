@@ -37,8 +37,20 @@ add(repo, "*")
 commit(repo, "Update CSV files")
 
 # Push changes to online repository
-push(repo, "origin", "main")  # Use the appropriate names for your remote and branch
+push(repo, "origin", "main")
 
+
+
+
+
+# Stage changes
+system("git add *")
+
+# Commit changes
+system('git commit -m "Update CSV files"')
+
+# Push changes to online repository
+system("git push origin main")  # Use the appropriate names for your remote and branch
 
 
 
