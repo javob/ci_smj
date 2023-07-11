@@ -24,8 +24,8 @@ medicionesDB <- kobo_df_download(
   assetid = "aRjyGaDFmeXMG3akSBvYzh")
 
 # Save files
-write.csv(estacionesDB[-1], file = "estacionesDB.csv")
-write.csv(medicionesDB[-1], file = "medicionesDB.csv")
+write.csv(estacionesDB, file = "estacionesDB.csv")
+write.csv(medicionesDB, file = "medicionesDB.csv")
 
 # Open local repository
 repo <- repository(".")
