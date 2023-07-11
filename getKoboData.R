@@ -5,10 +5,8 @@ rm(list = ls())
 
 # Libraries
 library(KoboconnectR)
-library(git2r)
 
 # Run in R-Studio Terminal
-# git config --global http.followRedirects true
 
 # Delete previous files 
 if (file.exists("estacionesDB.csv")) {file.remove("estacionesDB.csv")}
@@ -27,14 +25,6 @@ medicionesDB <- kobo_df_download(
 write.csv(estacionesDB, file = "estacionesDB.csv")
 write.csv(medicionesDB, file = "medicionesDB.csv")
 
-# Stage changes
-system("git add *")
-
-# Commit changes
-system('git commit -m "Update CSV files"')
-
-# Push changes to online repository
-system("git push origin main")  
 
 
 
