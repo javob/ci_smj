@@ -34,7 +34,7 @@ system("git add *")
 system('git commit -m "Update CSV files"')
 
 # Push changes to online repository
-system("git push origin main")  # Use the appropriate names for your remote and branch
+system("git push origin main")  
 
 
 
