@@ -3,8 +3,11 @@
 library(rstudioapi); setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 rm(list = ls())
 
+# Libraries
 library(KoboconnectR)
+library(git2r)
 
+# Delete previous files 
 if (file.exists("estacionesDB.csv")) {file.remove("estacionesDB.csv")}
 if (file.exists("medicionesDB.csv")) {file.remove("medicionesDB.csv")}
 
@@ -17,5 +20,36 @@ medicionesDB <- kobo_df_download(
   url = "kf.kobotoolbox.org", uname = "javierbrolo", pwd = "Dreams4u1!",
   assetid = "aRjyGaDFmeXMG3akSBvYzh")
 
+# Save files
 write.csv(estacionesDB, file = "estacionesDB.csv")
 write.csv(medicionesDB, file = "medicionesDB.csv")
+
+# Open local repository
+repo <- repository(".")
+
+# Stage changes
+add(repo, "*")
+
+# Commit changes
+commit(repo, "Update CSV files")
+
+# Push changes to online repository
+push(repo, "origin", "main")  # Use the appropriate names for your remote and branch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
